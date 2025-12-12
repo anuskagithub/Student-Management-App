@@ -1,0 +1,52 @@
+.student-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  font-size: 15px;
+}
+
+.student-table thead tr {
+  background: linear-gradient(90deg, #e0e7ff, #f3e8ff);
+}
+
+.student-table thead th {
+  padding: 14px;
+  text-align: left;
+  font-weight: 700;
+  color: #1e293b;
+  border-bottom: 2px solid #c7d2fe;
+}
+
+.student-table tbody tr {
+  background: linear-gradient(90deg, #eef2ff, #faf5ff);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: 0.25s ease;
+}
+
+.student-table tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+.student-table tbody td {
+  padding: 14px;
+  color: #334155;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 16px;
+  margin-top: 18px;
+  background: linear-gradient(90deg, #4f46e5, #7c3aed);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #4338ca, #6d28d9);
+}
+

@@ -1,0 +1,59 @@
+<h2>Add Student</h2>
+
+<form [formGroup]="form" (ngSubmit)="onSave()">
+  <div class="card">
+    <div class="row">
+      <label class="label">Name *</label><br>
+      <input formControlName="name" type="text" />
+      <div *ngIf="name?.touched && name?.invalid" class="error">
+        <div *ngIf="name?.errors?.['required']">Name is required.</div>
+        <div *ngIf="name?.errors?.['minlength']">Name must be at least 5 characters.</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <label class="label">Class *</label><br>
+      <select formControlName="class">
+        <option value="" disabled>Select Class</option>
+        <option *ngFor="let c of classes" [value]="c">{{ c }}</option>
+      </select>
+
+      <div class="info" *ngIf="classCtrl?.value">
+        <span *ngIf="classCtrl?.value === 'Class 9'">You will appear in board exams soon. All the Best !!</span>
+        <span *ngIf="classCtrl?.value === 'Class 6'">Welcome to middle school!</span>
+        <span *ngIf="classCtrl?.value !== 'Class 6' && classCtrl?.value !== 'Class 9'">Education and hobby go hand in hand!</span>
+      </div>
+
+      <div *ngIf="classCtrl?.touched && classCtrl?.invalid" class="error">Class is required.</div>
+    </div>
+
+    <div class="row">
+      <label class="label">Gender *</label><br>
+      <label><input type="radio" formControlName="gender" value="Male" /> Male</label>
+      <label style="margin-left:12px;"><input type="radio" formControlName="gender" value="Female" /> Female</label>
+      <div *ngIf="gender?.touched && gender?.invalid" class="error">Gender is required.</div>
+    </div>
+
+    <div class="row">
+      <label><input type="checkbox" formControlName="hasHobby" /> I have a hobby</label>
+    </div>
+
+    <div class="row" *ngIf="hasHobby?.value">
+      <label class="label">Hobby</label><br>
+      <input formControlName="hobby" type="text" placeholder="Enter hobby" />
+    </div>
+
+    <div class="row">
+      <label class="label">Favourite Subject</label><br>
+      <select formControlName="favouriteSubject">
+        <option value="">-- Select (optional) --</option>
+        <option *ngFor="let s of subjects" [value]="s">{{ s }}</option>
+      </select>
+    </div>
+
+    <div class="row actions">
+      <button type="submit">Save</button>
+      <button type="button" (click)="onCancel()" style="margin-left:8px;">Cancel</button>
+    </div>
+  </div>
+</form>
